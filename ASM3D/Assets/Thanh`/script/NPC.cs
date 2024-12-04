@@ -9,6 +9,8 @@ public class NPC : MonoBehaviour
     public TextMeshProUGUI NPCTextContent;
     public string[] content;
 
+    public QuestItem questItem;
+
     Coroutine coroutine;
     private void Start()
     {
@@ -36,6 +38,11 @@ public class NPC : MonoBehaviour
             }
             yield return new WaitForSeconds(0.3f);
         }
+    }
+
+    public void SkipContent()
+    {
+        StopCoroutine(coroutine);
     }
     private void OnTriggerExit(Collider other)
     {

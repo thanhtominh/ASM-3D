@@ -11,7 +11,7 @@ public class PlayerQuest : MonoBehaviour
     public void TakeQuest(QuestItem questItem)
     {
         var check = questItems.FirstOrDefault(x => x.questItemName  == questItem.questItemName);
-        if (check != null)
+        if (check == null)
         {
             questItems.Add(questItem);
         }

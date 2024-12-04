@@ -10,21 +10,25 @@ public class NPC : MonoBehaviour
     public string[] content;
 
     public QuestItem questItem;
-
+    public PlayerQuest PlayerQuest;
+    public GameObject buttonTakeQuest;
     Coroutine coroutine;
     private void Start()
     {
         NPCPanel.SetActive(false);
         NPCTextContent.text = "";
+        buttonTakeQuest.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            PlayerQuest = other.gameObject.GetComponent<PlayerQuest>();
             NPCPanel.SetActive(true);
             NPCTextContent.text = content[0];
             coroutine = StartCoroutine(ReadContent());
         }
+        buttonTakeQuest?.SetActive(true);
     }
     IEnumerator ReadContent()
     {
@@ -50,6 +54,16 @@ public class NPC : MonoBehaviour
         {
             NPCPanel.SetActive(false);
             StopCoroutine(coroutine);
+        }
+    }
+
+    public void TakeQuest()
+    {
+        if(PlayerQuest != null)
+        {
+            PlayerQuest.TakeQuest(questItem);
+            buttonTakeQuest.SetActive(false);
+            NPCPanel.SetActive(false);
         }
     }
 }

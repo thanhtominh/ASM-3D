@@ -11,6 +11,8 @@ public class Character : MonoBehaviour
     public DamageZone damageZone;
     public Health health;
     public Animator animator;
+    public float gravity = -9.81f;
+
 
     public enum CharaterState
     {
@@ -28,6 +30,7 @@ public class Character : MonoBehaviour
             ChangeState(CharaterState.Die);
             return;
         }
+        
         switch (currentState)
         {
             case CharaterState.Normal:
@@ -35,6 +38,15 @@ public class Character : MonoBehaviour
                 break;
             case CharaterState.Attack:
                 break;
+        }
+
+        if (characterController.isGrounded)
+        {
+            movementVelocity.y = 0;
+        }
+        else
+        {
+            movementVelocity.y += gravity * Time.deltaTime;
         }
 
         characterController.Move(movementVelocity);

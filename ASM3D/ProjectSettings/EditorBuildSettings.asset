@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chien.unity
     guid: 80326ee0ddfa2454e9eac03b593edd73
+  - enabled: 1
+    path: Assets/Scenes/Boss.unity
+    guid: e1d16ca771d2e0449a3621d5fa2f087e
   m_configObjects: {}

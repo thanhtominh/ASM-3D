@@ -18,7 +18,7 @@ public class Character : MonoBehaviour
         Attack,
         Die
     }
-    public CharaterState curremtState;
+    public CharaterState currentState;
 
 
     private void FixedUpdate()
@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
             ChangeState(CharaterState.Die);
             return;
         }
-        switch (curremtState)
+        switch (currentState)
         {
             case CharaterState.Normal:
                 CalculateMoment();
@@ -64,7 +64,7 @@ public class Character : MonoBehaviour
     private void ChangeState(CharaterState newState)
     {
         playerInput.attackInput = false;
-        switch (curremtState)
+        switch (currentState)
         {
             case CharaterState.Normal:
                 break;
@@ -82,7 +82,7 @@ public class Character : MonoBehaviour
                 animator.SetTrigger("Die");
                 break;
         }
-        curremtState = newState;
+        currentState = newState;
     }
 
     public void OnAttack01End()

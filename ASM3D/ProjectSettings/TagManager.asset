@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Dragon
+  - Golem
   layers:
   - Default
   - TransparentFX

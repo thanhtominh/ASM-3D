@@ -4,14 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - CinemachineTarget
-  - Dragon
-  - Golem
+  - Sword
+  - Monster
+  - Orc
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - 
   - Water
   - UI
   - 
